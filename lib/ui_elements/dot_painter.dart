@@ -10,7 +10,7 @@ class _DotPainter extends BoxPainter {
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final Paint paint = Paint()
-      ..color = Color(0xFF464646) // Dot color
+      ..color = const  Color(0xFF464646) // Dot color
       ..isAntiAlias = true;
 
     final double circleRadius = 4.0; // Size of the dot

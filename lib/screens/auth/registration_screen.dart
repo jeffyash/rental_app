@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moon_design/moon_design.dart';
-import 'package:rentalapp/HomePage.dart';
-import 'package:rentalapp/login_page.dart';
+import 'package:rentalapp/screens/student/home_screen_student.dart';import 'package:rentalapp/screens/auth/login_screen.dart';
 
 class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage({super.key});
@@ -84,7 +83,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 16),
                   MoonFilledButton(
                     backgroundColor: const Color(0xFF40A69F),
                     height: 42,
@@ -95,7 +94,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         // If form is valid, navigate to HomePage
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HomePage()),
+                          MaterialPageRoute(builder: (context) => const HomePage()),
                         );
                       } else if (!termsAndConditions) {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -116,7 +115,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       socialIconButton("Google", "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"),
-                      const SizedBox(width: 9),
+                      const SizedBox(width: 10),
                       socialIconButton("Facebook", "https://static.vecteezy.com/system/resources/previews/018/930/476/non_2x/facebook-logo-facebook-icon-transparent-free-png.png"),
                     ],
                   ),
@@ -151,7 +150,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(label, style: GoogleFonts.poppins(textStyle: const TextStyle(fontSize: 16))),
-        const SizedBox(height: 13),
+        const SizedBox(height: 10),
         SizedBox(
           width: 290,
           child: MoonFormTextInput(
@@ -204,7 +203,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                 : null,
           ),
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 8),
       ],
     );
   }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:circle_progress_bar/circle_progress_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rentalapp/NearYou.dart';
-import 'package:rentalapp/ui_elements/DotPainter.dart';
+import 'package:rentalapp/screens/student/near_you.dart';
+import 'package:rentalapp/ui_elements/dot_painter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 12),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Row(
@@ -180,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 12),
               // Add TabBar
               Padding(
                 padding: const EdgeInsets.only(left: 12),
@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 24), // Add some space between TabBar and TabBarView
+              const SizedBox(height: 12), // Add some space between TabBar and TabBarView
               // Add TabBarView
               Expanded(
                 child: TabBarView(
@@ -224,110 +224,114 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        bottomNavigationBar: Padding(
+        bottomNavigationBar:  Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            width: 359,
-            height: 80,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(25)), // Rounded corners
+              color: Colors.white, // Background color
+              borderRadius: BorderRadius.all(
+               Radius.circular(20),
+              ),
               border: Border.all(
-                color: Color(0xFFECEAEA), // Border color
-                width: 2.0, // Border width
+                color: Colors.grey, // Border color
+                width: 1.5, // Border width
               ),
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(25)),
-              child: BottomNavigationBar(
-                currentIndex: _currentIndex, // Set current index
-                onTap: (index) {
-                  setState(() {
-                    _currentIndex = index; // Update the index on tap
-                  });
-                },
-                type: BottomNavigationBarType.fixed, // Set type to fixed
-                showSelectedLabels: false, // Hide labels for selected items
-                showUnselectedLabels: false, // Hide labels for unselected items
-                selectedItemColor: Colors.black, // Color for the selected icon
-                unselectedItemColor: Colors.black, // Color for unselected icons
-                items: <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.explore_outlined), // Default icon
-                    activeIcon: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFF40A69F), // Circle background color when selected
-                      ),
-                      padding: EdgeInsets.all(8), // Adjust padding for the circle size
-                      child: Icon(
-                        Icons.explore_outlined,
-                        color: Colors.white, // Icon color inside the circle
-                      ),
+            child: BottomNavigationBar(
+              currentIndex: _currentIndex,
+              onTap: (index) {
+                setState(() {
+                  _currentIndex = index; // Update the index on tap
+                });
+              },
+              iconSize: 22,
+              backgroundColor: Colors.transparent, // Ensuring background is transparent so container is visible
+              elevation:0, // Remove shadow for flat appearance
+              type: BottomNavigationBarType.fixed,
+              showSelectedLabels: false, // Hide labels for selected items
+              showUnselectedLabels: false, // Hide labels for unselected items
+              selectedItemColor: Colors.white, // Color for the selected icon
+              unselectedItemColor: Colors.black, // Color for unselected icons
+              items:  <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.explore_outlined), // Default icon
+                  activeIcon: Container(
+                    width:  40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xFF40A69F), // Circle background color when selected
                     ),
-                    label: 'Explore', // Label for accessibility
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.favorite_outline_outlined), // Default icon
-                    activeIcon: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFF40A69F), // Circle background color when selected
-                      ),
-                      padding: EdgeInsets.all(8), // Adjust padding for the circle size
-                      child: Icon(
-                        Icons.favorite_outline_outlined,
-                        color: Colors.white, // Icon color inside the circle
-                      ),
+                    padding: EdgeInsets.all(8), // Adjust padding for the circle size
+                    child: Icon(
+                      Icons.explore_outlined,
+                      color: Colors.white,
+                      size: 20,// Icon color inside the circle
                     ),
-                    label: 'Favorites', // Label for accessibility
                   ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.notifications_outlined), // Default icon
-                    activeIcon: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFF40A69F), // Circle background color when selected
-                      ),
-                      padding: EdgeInsets.all(8), // Adjust padding for the circle size
-                      child: Icon(
-                        Icons.notifications_outlined,
-                        color: Colors.white, // Icon color inside the circle
-                      ),
+                  label: 'Explore', // Label for accessibility
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.favorite_outline_outlined), // Default icon
+                  activeIcon: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xFF40A69F), // Circle background color when selected
                     ),
-                    label: 'Notifications', // Label for accessibility
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.chat_bubble_outline_outlined), // Default icon
-                    activeIcon: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFF40A69F), // Circle background color when selected
-                      ),
-                      padding: EdgeInsets.all(8), // Adjust padding for the circle size
-                      child: Icon(
-                        Icons.chat_bubble_outline_outlined,
-                        color: Colors.white, // Icon color inside the circle
-                      ),
+                    padding: EdgeInsets.all(8), // Adjust padding for the circle size
+                    child: Icon(
+                      Icons.favorite_outline_outlined,
+                      color: Colors.white, // Icon color inside the circle
                     ),
-                    label: 'Chat', // Label for accessibility
                   ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person_outline_sharp), // Default icon
-                    activeIcon: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color(0xFF40A69F), // Circle background color when selected
-                      ),
-                      padding: EdgeInsets.all(8), // Adjust padding for the circle size
-                      child: Icon(
-                        Icons.person_outline_sharp,
-                        color: Colors.white, // Icon color inside the circle
-                      ),
+                  label: 'Favorites', // Label for accessibility
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.notifications_outlined), // Default icon
+                  activeIcon: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xFF40A69F), // Circle background color when selected
                     ),
-                    label: 'Profile', // Label for accessibility
+                    padding: EdgeInsets.all(8), // Adjust padding for the circle size
+                    child: Icon(
+                      Icons.notifications_outlined,
+                      color: Colors.white, // Icon color inside the circle
+                    ),
                   ),
-                ],
-              ),
+                  label: 'Notifications', // Label for accessibility
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.chat_bubble_outline_outlined), // Default icon
+                  activeIcon: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xFF40A69F), // Circle background color when selected
+                    ),
+                    padding: EdgeInsets.all(8), // Adjust padding for the circle size
+                    child: Icon(
+                      Icons.chat_bubble_outline_outlined,
+                      color: Colors.white, // Icon color inside the circle
+                    ),
+                  ),
+                  label: 'Chat', // Label for accessibility
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person_outline_sharp), // Default icon
+                  activeIcon: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xFF40A69F), // Circle background color when selected
+                    ),
+                    padding: EdgeInsets.all(8), // Adjust padding for the circle size
+                    child: Icon(
+                      Icons.person_outline_sharp,
+                      color: Colors.white, // Icon color inside the circle
+                    ),
+                  ),
+                  label: 'Profile', // Label for accessibility
+                ),
+              ],
             ),
           ),
         ),
@@ -335,3 +339,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+

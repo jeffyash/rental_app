@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rentalapp/createaccount.dart';
+import 'package:rentalapp/screens/auth/registration_screen.dart';
 
 void main() {
   runApp( const RentalApp());
