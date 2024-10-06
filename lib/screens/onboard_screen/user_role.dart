@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moon_design/moon_design.dart';
 import 'package:rentalapp/screens/auth/registration_screen.dart';
-import 'package:rentalapp/screens/student/home_screen_student.dart';
 class SelectUserRole extends StatelessWidget {
   const SelectUserRole({super.key});
 
