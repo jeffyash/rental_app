@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rentalapp/screens/auth/registration_screen.dart';
 import 'package:rentalapp/screens/onboard_screen/main_page.dart';
 
 void main() {

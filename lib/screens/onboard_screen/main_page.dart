@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moon_design/moon_design.dart';
 import 'package:rentalapp/screens/onboard_screen/user_role.dart';
-import 'package:rentalapp/screens/student/home_screen_student.dart';
 
 class OnboardPage extends StatelessWidget {
   const OnboardPage({super.key});
